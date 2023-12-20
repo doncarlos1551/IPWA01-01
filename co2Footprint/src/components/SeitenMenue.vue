@@ -1,9 +1,12 @@
 <template>
   <div class="seiten-menue" :class="mobileAnsicht ? 'seiten-menue--mobil' : ''">
-    <h5>Globale Links</h5>
+    <h5>Wichtige Links</h5>
     <ul class="seiten-menue__liste">
-      <li class="liste__eintrag" v-for="link in externenLinks" :key="link.name">
-        <a :href="link.url" target="_blank">{{ link.name }}</a>
+      <li class="liste__eintrag" v-for="link in allgemeineLinks" :key="link.name">
+        <a v-if="link.typ === 'extern'" :href="link.url" target="_blank">{{
+          link.name
+        }}</a>
+        <router-link v-else :to="link.url">{{ link.name }}</router-link>
       </li>
     </ul>
   </div>
@@ -12,9 +15,10 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
-interface ExternerLink {
+interface AllgemeinerLink {
   name: string;
   url: string;
+  typ: "extern" | "intern";
 }
 
 export default defineComponent({
@@ -26,12 +30,12 @@ export default defineComponent({
     },
   },
   setup() {
-    const externenLinks = ref<ExternerLink[]>([
-      { name: "Google", url: "https://www.google.com" },
-      { name: "Facebook", url: "https://www.facebook.com" },
+    const allgemeineLinks = ref<AllgemeinerLink[]>([
+      { name: "IU", url: "https://www.iu.de", typ: "extern" },
+      { name: "Nachhaltigkeit", url: "/nachhaltigkeit", typ: "intern" },
     ]);
 
-    return { externenLinks };
+    return { allgemeineLinks };
   },
 });
 </script>

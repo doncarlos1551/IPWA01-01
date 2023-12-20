@@ -11,17 +11,17 @@
         @click="vorherigesPanel()"
       />
 
-      <div class="drei-folien-wechsler__panel" v-if="aktivesPanel === 2">
+      <div class="drei-folien-wechsler__panel" v-if="aktivesPanel === 1">
         <h2>CO2 und Zukunft</h2>
         <p>
           CO2 ist schlecht. Lesen Sie auf dieser Webseite nach wieso CO2 schlecht ist...
         </p>
       </div>
-      <div class="drei-folien-wechsler__panel" v-if="aktivesPanel === 1">
+      <div class="drei-folien-wechsler__panel" v-if="aktivesPanel === 2">
         <h2>Nachhaltigkeit</h2>
         <p>
           Nachhaltigkeit ist gut. Lesen Sie auf dieser Webseite nach wieso Nachhaltigkeit
-          gut ist...
+          gut ist... <router-link to="/nachhaltigkeit">Klicke Hier</router-link>
         </p>
       </div>
       <div class="drei-folien-wechsler__panel" v-if="aktivesPanel === 3">

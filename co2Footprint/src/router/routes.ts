@@ -12,8 +12,13 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: '', component: () => import('pages/EmissionsdatenSeite.vue') }],
   },
   {
+    path: '/nachhaltigkeit',
+    component: () => import('layouts/HauptLayout.vue'),
+    children: [{ path: '', component: () => import('pages/NachhaltigkeitSeite.vue') }],
+  },
+  {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNichtGefunden.vue'),
+    component: () => import('pages/ErrorNichtGefundenSeite.vue'),
   },
 ];
 

@@ -12,7 +12,7 @@ Installation und Ausführung
 ```bash
 git clone https://github.com/doncarlos1551/IPWA01-01.git
 ```
--Navigieren zum Projektverzeichnis
+- Navigieren zum Projektverzeichnis
 ```bash
 cd co2-Footprint
 ```

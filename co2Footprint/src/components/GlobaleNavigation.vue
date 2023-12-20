@@ -33,6 +33,7 @@ export default defineComponent({
     const navigationsEintraege = [
       { name: "Startseite", path: "/" },
       { name: "Über Emissionen", path: "/emission" },
+      { name: "Über Nachhaltigkeit", path: "/nachhaltigkeit" },
     ];
 
     function menueUmschalten() {
