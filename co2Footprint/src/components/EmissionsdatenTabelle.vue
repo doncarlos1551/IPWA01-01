@@ -8,19 +8,19 @@
     <table class="emissions-date-tabelle__tabelle">
       <thead>
         <tr>
-          <th @click="sortTable('')">
+          <th @click="sortiereTabelle('')">
             Index<q-icon v-if="sortierSchluessel === ''" :name="sortierIcon" />
           </th>
-          <th @click="sortTable('unternehmen')">
+          <th @click="sortiereTabelle('unternehmen')">
             Unternehmen<q-icon
               v-if="sortierSchluessel === 'unternehmen'"
               :name="sortierIcon"
             />
           </th>
-          <th @click="sortTable('land')">
+          <th @click="sortiereTabelle('land')">
             Land<q-icon v-if="sortierSchluessel === 'land'" :name="sortierIcon" />
           </th>
-          <th @click="sortTable('co2')">
+          <th @click="sortiereTabelle('co2')">
             CO2-Wert<q-icon v-if="sortierSchluessel === 'co2'" :name="sortierIcon" />
           </th>
         </tr>
@@ -111,18 +111,16 @@ export default defineComponent({
           }
           return sortierRichtung.value === "auf" ? vergleich : -vergleich;
         });
-      console.log("compiute", sortierSchluessel.value, temporaereFilterung);
       return temporaereFilterung;
     });
 
-    function sortTable(key: keyof EmissionsTabellenEintrag) {
+    function sortiereTabelle(key: keyof EmissionsTabellenEintrag) {
       if (sortierSchluessel.value === key) {
         sortierRichtung.value = sortierRichtung.value === "auf" ? "ab" : "auf";
       } else {
         sortierSchluessel.value = key;
         sortierRichtung.value = "auf";
       }
-      console.log("ASDF", key, sortierRichtung.value);
     }
 
     return {
@@ -133,7 +131,7 @@ export default defineComponent({
       gefilterteDaten,
       filterUnternehmen,
       filterLand,
-      sortTable,
+      sortiereTabelle,
     };
   },
 });
